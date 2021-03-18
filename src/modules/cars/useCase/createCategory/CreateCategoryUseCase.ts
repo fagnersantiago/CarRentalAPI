@@ -1,11 +1,11 @@
-import PostgresCategoryRepository from '../repositories/PostgresCategoryRepository';
+import PostgresCategoryRepository from '../../repositories/PostgresCategoryRepository';
 
 interface IRequest {
     name: string;
     description: string;
 }
 
-class CreateCategoryServices {
+class CreateCategoryUseCase {
     constructor(private categoriesRepository: PostgresCategoryRepository) {}
 
     execute({ name, description }: IRequest): void {
@@ -22,4 +22,4 @@ class CreateCategoryServices {
     }
 }
 
-export default CreateCategoryServices;
+export default CreateCategoryUseCase;
