@@ -1,4 +1,4 @@
-import PostgresCategoryRepository from '../../repositories/PostgresCategoryRepository';
+import ICategoryRepository from '../../repositories/ICategoryRepository';
 
 interface IRequest {
     name: string;
@@ -6,7 +6,7 @@ interface IRequest {
 }
 
 class CreateCategoryUseCase {
-    constructor(private categoriesRepository: PostgresCategoryRepository) {}
+    constructor(private categoriesRepository: ICategoryRepository) {}
 
     execute({ name, description }: IRequest): void {
         const categoryExist = this.categoriesRepository.findByName(name);
