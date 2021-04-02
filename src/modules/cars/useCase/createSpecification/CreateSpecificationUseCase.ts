@@ -1,3 +1,4 @@
+import { inject, injectable } from 'tsyringe';
 import ICategoryRepository from '../../repositories/ICategoryRepository';
 import ISpecificationRepository from '../../repositories/ISpecificationRepository';
 
@@ -5,9 +6,12 @@ interface IRequest {
     name: string;
     description: string;
 }
-
+@injectable()
 class CreateSpecificationUseCase {
-    constructor(private createSpecificationUsecase: ISpecificationRepository) {}
+    constructor(
+        @inject('SpecificationRepository')
+        private createSpecificationUsecase: ISpecificationRepository,
+    ) {}
 
     execute({ name, description }: IRequest): void {
         const specifiction = this.createSpecificationUsecase.findByName(name);

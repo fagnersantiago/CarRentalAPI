@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add tsyringe
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add 7 express-async-errors
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\fagne\bin;C:\Python27;C:\Python27\Scripts;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin;%ANDROID_HOME%\emulator;%ANDROID_HOME%\tools;%ANDROID_HOME%\tools\bin;%ANDROID_HOME%\platform-tools;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\fagne\AppData\Local\Microsoft\WindowsApps;C:\Users\fagne\AppData\Local\Microsoft\WindowsApps;C:\Users\fagne\AppData\Roaming\npm;C:\Users\fagne\AppData\Local\Yarn\bin;C:\Users\fagne\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Docker Toolbox
@@ -35,14 +35,16 @@ npm manifest:
       "multer": "^1.4.2",
       "pg": "^8.5.1",
       "reflect": "^0.1.3",
+      "reflect-metadata": "^0.1.13",
       "swagger-ui-express": "^3.0.3",
       "ts-node-dev": "^1.1.6",
+      "tsyringe": "^4.5.0",
       "typeorm": "^0.2.31",
       "uuidv4": "^6.2.6"
     },
     "scripts": {
       "dev": " ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-      "typeorm":"ts-node-dev ./node_modules/typeorm/cli"
+      "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
     },
     "devDependencies": {
       "eslint-config-prettier": "^8.1.0",
@@ -2138,7 +2140,7 @@ Lockfile:
       strip-bom "^3.0.0"
       strip-json-comments "^2.0.0"
   
-  tslib@^1.13.0, tslib@^1.8.1:
+  tslib@^1.13.0, tslib@^1.8.1, tslib@^1.9.3:
     version "1.14.1"
     resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
     integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
@@ -2149,6 +2151,13 @@ Lockfile:
     integrity sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==
     dependencies:
       tslib "^1.8.1"
+  
+  tsyringe@^4.5.0:
+    version "4.5.0"
+    resolved "https://registry.yarnpkg.com/tsyringe/-/tsyringe-4.5.0.tgz#fc88cbab57deac47a2a2033bbca94c96d3c2702a"
+    integrity sha512-XvYgdUxkmGQfpCkKyr/ybJx71OLSnNec1SO0xdohMjaS2UOEyKi76YfKx92XUXgc1TocypHENg6y4wCyYyMKag==
+    dependencies:
+      tslib "^1.9.3"
   
   type-is@^1.6.4, type-is@~1.6.17, type-is@~1.6.18:
     version "1.6.18"
