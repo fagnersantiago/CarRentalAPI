@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { container } from 'tsyringe';
 import CreateCategoryController from '../modules/cars/useCase/createCategory/CreateCategoryController';
 import ListCategoryController from '../modules/cars/useCase/listCategory/ListCategoryController';
 
@@ -17,6 +16,7 @@ const importCategoriesController = new ImportCategoryController();
 const listCategoriesController = new ListCategoryController();
 
 categoriesRoutes.post('', createCategoriesController.handle);
+console.log('funcionando');
 
 categoriesRoutes.get('', listCategoriesController.handle);
 
