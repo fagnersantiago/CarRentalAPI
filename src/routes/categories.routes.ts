@@ -16,7 +16,6 @@ const importCategoriesController = new ImportCategoryController();
 const listCategoriesController = new ListCategoryController();
 
 categoriesRoutes.post('', createCategoriesController.handle);
-console.log('funcionando');
 
 categoriesRoutes.get('', listCategoriesController.handle);
 
