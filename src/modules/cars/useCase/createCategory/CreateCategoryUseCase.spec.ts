@@ -1,3 +1,4 @@
+import { AppErros } from '../../../../errors/AppErrors';
 import CategoriesRepositoryInMemory from '../../repositories/in-memory/CategoryRepositoryInMemory';
 import CreateCategoryUseCase from './CreateCategoryUseCase';
 
@@ -47,6 +48,6 @@ describe('Create Category', () => {
                 name: createCategory.name,
                 description: createCategory.description,
             });
-        });
+        }).rejects.toBeInstanceOf(AppErros);
     });
 });
