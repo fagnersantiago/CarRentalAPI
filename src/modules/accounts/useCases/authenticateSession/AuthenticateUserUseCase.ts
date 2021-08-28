@@ -2,8 +2,8 @@ import { inject, injectable } from 'tsyringe';
 import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 
-import IUserRepository from '../../entities/repositories/IUserRepository';
-import { AppErros } from '../../../../errors/AppErrors';
+import IUserRepository from '../../repositories/IUserRepository';
+import { AppErros } from '../../../../shared/errors/AppErrors';
 
 interface IRequest {
     email: string;
@@ -20,7 +20,7 @@ interface IResponse {
 }
 
 @injectable()
-class AuthenticateUseCase {
+class AuthenticateUserUserCase {
     constructor(
         @inject('UserRepository')
         private userRepository: IUserRepository,
@@ -58,4 +58,4 @@ class AuthenticateUseCase {
     }
 }
 
-export default AuthenticateUseCase;
+export default AuthenticateUserUserCase;
