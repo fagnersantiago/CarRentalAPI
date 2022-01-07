@@ -16,7 +16,7 @@ interface IRequest {
 @injectable()
 class CreateCarUseCase {
     constructor(
-        @inject('CarsRepository')
+        @inject('CarsRepositoryy')
         private carsRepository: ICarRepository,
     ) {}
     async execute({
