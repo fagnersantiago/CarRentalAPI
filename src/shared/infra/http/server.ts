@@ -3,12 +3,12 @@ import 'express-async-errors';
 import swaggerUI from 'swagger-ui-express';
 import '../typeorm';
 import '../../container';
-import createConnection from '../../../shared/infra/typeorm';
+//import createConnection from '../../../shared/infra/typeorm';
 import router from './routes';
 import swaggerJson from '../../../swagger.json';
 import { AppErros } from '../../errors/AppErrors';
 
-createConnection();
+//createConnection();
 
 const app = express();
 
