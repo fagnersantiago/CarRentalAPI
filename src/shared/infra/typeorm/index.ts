@@ -1,19 +1,18 @@
-import { createConnection, getConnectionOptions } from 'typeorm';
+// import { createConnection, getConnectionOptions } from 'typeorm';
 
-interface IOptions {
-    host: string;
-}
+// interface IOptions {
+//     host: string;
+// }
 
-getConnectionOptions().then(options => {
-    const newOptions = options as IOptions;
-    newOptions.host = '192.168.99.100';
+// export default getConnectionOptions().then(options => {
+//     const newOptions = options as IOptions;
+//     newOptions.host = '192.168.99.100';
 
-    createConnection({
-        ...options,
-    });
-});
-// import { Connection, createConnection, getConnectionOptions } from 'typeorm';
-
+//     createConnection({
+//         ...options,
+//     });
+// });
+//import { Connection, createConnection, getConnectionOptions } from 'typeorm';
 // export default async (host: '192.168.99.100'): Promise<Connection> => {
 //     const defaultOptions = await getConnectionOptions();
 //     return createConnection(
@@ -22,3 +21,16 @@ getConnectionOptions().then(options => {
 //         }),
 //     );
 // };
+
+import { Connection, createConnection, getConnectionOptions } from 'typeorm';
+
+export default async (host = '192.168.99.100'): Promise<Connection> => {
+    const connectionsOptions = await getConnectionOptions();
+
+    return createConnection(
+        Object.assign(connectionsOptions, {
+            host: host,
+            database: 'rentx',
+        }),
+    );
+};

@@ -1,10 +1,10 @@
+import CreateCarSpecificationUseCase from './CreateCarSpeciticationUseCase';
 import CarsRepositoryInMemory from '../../repositories/in-memory/CarsRepositoryInMemory';
 import SpecificationInMemory from '../../repositories/in-memory/SpecificationInMenmory';
-import CreateCarSpecificationUseCase from './CreateCarSpeciticationUseCase';
 import { AppErros } from '../../../../shared/errors/AppErrors';
 
-let createCarSpecificationUseCase: CreateCarSpecificationUseCase;
 let carRepositoryInMemory: CarsRepositoryInMemory;
+let createCarSpecificationUseCase: CreateCarSpecificationUseCase;
 let specificationRepositoryInMemory: SpecificationInMemory;
 
 describe('CreateCarSpecification', () => {
@@ -15,35 +15,43 @@ describe('CreateCarSpecification', () => {
             carRepositoryInMemory,
             specificationRepositoryInMemory,
         );
+    });
+    it('Should  not be able add  a new  specification to non-existent car', async () => {
+        const car_id = '123';
+        const specification_id = ['123456'];
 
-        it('Should  not be able add  a new  specification to now-existent car', async () => {
-            expect(async () => {
-                const car_id = '123';
-                const specification_id = ['123456'];
-
-                await createCarSpecificationUseCase.execute({
-                    car_id,
-                    specification_id,
-                });
-            }).rejects.toBeInstanceOf(AppErros);
-        });
-
-        it('Should be able add  a new  specification to the car', async () => {
-            const car = await carRepositoryInMemory.create({
-                name: 'Name Car',
-                descritpion: 'Descritpion Car',
-                daily_rate: 100,
-                license_plate: 'ABC-1234',
-                fine_amount: 60,
-                brand: 'brand',
-                category_id: 'category',
-            });
-            const specification_id = ['123456'];
-
-            await createCarSpecificationUseCase.execute({
-                car_id: car.id,
+        await expect(
+            createCarSpecificationUseCase.execute({
+                car_id,
                 specification_id,
-            });
+            }),
+        ).rejects.toBeInstanceOf(AppErros);
+    });
+
+    it('Should be able add  a new  specification to the car', async () => {
+        const car = await carRepositoryInMemory.create({
+            name: 'Name Car',
+            descritpion: 'Descritpion Car',
+            daily_rate: 100,
+            license_plate: 'ABC-1234',
+            fine_amount: 60,
+            brand: 'brand',
+            category_id: 'category',
         });
+        const specification = await specificationRepositoryInMemory.create({
+            description: 'test',
+            name: 'test',
+        });
+
+        const car_id = car.id;
+        const specification_id = [specification.id];
+
+        const specificationsCar = await createCarSpecificationUseCase.execute({
+            car_id,
+            specification_id,
+        });
+        console.log(specificationsCar);
+        expect(specificationsCar).toHaveProperty('specifications');
+        expect(specificationsCar.specification.length).toBe(1);
     });
 });

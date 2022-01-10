@@ -9,7 +9,7 @@ class SpecificationInMemory implements ISpecificationRepository {
     async create({
         description,
         name,
-    }: ICreateSpecificationDTO): Promise<void> {
+    }: ICreateSpecificationDTO): Promise<Specification> {
         const specification = new Specification();
 
         Object.assign(specification, {
@@ -18,6 +18,8 @@ class SpecificationInMemory implements ISpecificationRepository {
         });
 
         this.specifications.push(specification);
+
+        return specification;
     }
 
     async findByName(name: string): Promise<Specification> {

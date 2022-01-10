@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
+import '../../shared/container/DateProvider';
 import ICategoryRepository from '../../modules/cars/repositories/ICategoryRepository';
 import CategoriesRepository from '../../modules/cars/infra/typeorm/repositories/CategoriesRepository';
 import ISpecificationRepository from '../../modules/cars/repositories/ISpecificationRepository';
@@ -8,6 +9,10 @@ import ICreateUserRepository from '../../modules/accounts/repositories/IUserRepo
 import UserRepository from '../../modules/accounts/infra/typeorm/repositories/UserRepository';
 import ICarRepository from '../../modules/cars/repositories/ICarRepository';
 import CarsRepository from '../../modules/cars/infra/typeorm/repositories/CarRepository';
+import ICarImageRepository from '../../modules/cars/repositories/ICarImageRepository';
+import CarImagesRepository from '../../modules/cars/infra/typeorm/repositories/CarImagesRepository';
+import IRentalRepository from '../../modules/rentals/repository/IRentalRepository';
+import RentalRepository from '../../modules/rentals/infra/typeorm/repository/RentalRepository';
 
 container.registerSingleton<ICategoryRepository>(
     'CategoriesRepository',
@@ -26,4 +31,14 @@ container.registerSingleton<ICreateUserRepository>(
     UserRepository,
 );
 
-container.registerSingleton<ICarRepository>('CarsRepository', CarsRepository);
+container.registerSingleton<ICarRepository>('CarRepository', CarsRepository);
+
+container.registerSingleton<ICarImageRepository>(
+    'CarImagesRepository',
+    CarImagesRepository,
+);
+
+container.registerSingleton<IRentalRepository>(
+    'RentalRepsitory',
+    RentalRepository,
+);

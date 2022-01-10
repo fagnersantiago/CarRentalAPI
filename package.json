@@ -27,7 +27,9 @@
     "ts-node-dev": "^1.1.6",
     "tsyringe": "^4.5.0",
     "typeorm": "^0.2.31",
-    "uuidv4": "^6.2.6"
+    "uuidv4": "^6.2.6",
+    "dayjs": "^1.10.6"
+
   },
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
