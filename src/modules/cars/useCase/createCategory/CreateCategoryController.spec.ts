@@ -21,7 +21,7 @@ describe('Create Category', () => {
     });
 
     afterAll(async () => {
-        //await connection.dropDatabase();
+        await connection.dropDatabase();
         await connection.close();
     });
 
@@ -42,6 +42,7 @@ describe('Create Category', () => {
                 Authorization: `Bearer ${token}`,
             });
 
+        console.log(response.body);
         expect(response.status).toBe(201);
     });
 
@@ -62,6 +63,6 @@ describe('Create Category', () => {
                 Authorization: `Bearer ${token}`,
             });
 
-        expect(response.status).toBe(400);
+        expect(response.status).toBe(401);
     });
 });
