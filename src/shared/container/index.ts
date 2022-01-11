@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
-import '../../shared/container/DateProvider';
 import ICategoryRepository from '../../modules/cars/repositories/ICategoryRepository';
 import CategoriesRepository from '../../modules/cars/infra/typeorm/repositories/CategoriesRepository';
 import ISpecificationRepository from '../../modules/cars/repositories/ISpecificationRepository';
