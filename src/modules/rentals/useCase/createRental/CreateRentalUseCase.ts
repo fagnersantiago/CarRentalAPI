@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 import { IDateProvider } from '../../../../shared/container/DateProvider/IDateProvider';
 import { AppErros } from '../../../../shared/errors/AppErrors';
+import ICarRepository from '../../../cars/repositories/ICarRepository';
 import Rental from '../../infra/typeorm/entities/Rental';
 import IRentalRepository from '../../repository/IRentalRepository';
 
@@ -17,6 +18,8 @@ class CreateRentalUseCase {
         private rentalRepository: IRentalRepository,
         @inject('DayDateProvider')
         private dateProvider: IDateProvider,
+        @inject('CarRepository')
+        private carRepository: ICarRepository,
     ) {}
     async execute({
         user_id,
