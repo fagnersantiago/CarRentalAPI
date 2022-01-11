@@ -14,6 +14,10 @@ class DayDateProvider implements IDateProvider {
     convertToUtc(date: Date): string {
         return dayjs(date).utc().local().format();
     }
+
+    dateNow(): Date {
+        return dayjs().toDate();
+    }
 }
 
 export default DayDateProvider;
