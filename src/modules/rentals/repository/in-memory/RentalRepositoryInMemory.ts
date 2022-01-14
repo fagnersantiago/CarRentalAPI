@@ -1,3 +1,4 @@
+import rentalRoutes from '../../../../shared/infra/http/routes/rental.routes';
 import { ICreateRentalDto } from '../../dtos/ICreateRentalDto';
 import Rental from '../../infra/typeorm/entities/Rental';
 import IRentalRepository from '../IRentalRepository';
@@ -34,6 +35,16 @@ class RentalRepositoryInMemory implements IRentalRepository {
         this.rental.push(rental);
 
         return rental;
+    }
+
+    async findByid(id: string): Promise<Rental> {
+        const rental = this.rental.find(rental => rental.id === id);
+
+        return rental;
+    }
+
+    async findByUser(user_id: string): Promise<Rental[]> {
+        return this.rental.filter(rental => rental.user_id === user_id);
     }
 }
 

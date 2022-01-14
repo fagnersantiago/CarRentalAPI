@@ -36,8 +36,9 @@ container.registerSingleton<ICarImageRepository>(
     'CarImagesRepository',
     CarImagesRepository,
 );
+container.registerSingleton<ICarRepository>('CarsRepository', CarsRepository);
 
 container.registerSingleton<IRentalRepository>(
-    'RentalRepsitory',
+    'RentalRepository',
     RentalRepository,
 );
