@@ -42,7 +42,6 @@ describe('Create Category', () => {
                 Authorization: `Bearer ${token}`,
             });
 
-        console.log(response.body);
         expect(response.status).toBe(201);
     });
 

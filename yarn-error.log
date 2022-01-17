@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add typeorm migration:run
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add nodemailer
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\fagne\bin;C:\Python27;C:\Python27\Scripts;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin;%ANDROID_HOME%\emulator;%ANDROID_HOME%\tools;%ANDROID_HOME%\tools\bin;%ANDROID_HOME%\platform-tools;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\fagne\AppData\Local\Microsoft\WindowsApps;C:\Users\fagne\AppData\Local\Microsoft\WindowsApps;C:\Users\fagne\AppData\Roaming\npm;C:\Users\fagne\AppData\Local\Yarn\bin;C:\Users\fagne\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Docker Toolbox
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: migration:run: Invalid protocol: migration:
-      at Request.module.exports.Request.init (C:\Program Files (x86)\Yarn\lib\cli.js:141017:31)
-      at new Request (C:\Program Files (x86)\Yarn\lib\cli.js:140690:8)
-      at request (C:\Program Files (x86)\Yarn\lib\cli.js:137596:10)
-      at RequestManager.execute (C:\Program Files (x86)\Yarn\lib\cli.js:66148:15)
-      at RequestManager.shiftQueue (C:\Program Files (x86)\Yarn\lib\cli.js:66186:10)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:65855:13
-      at new Promise (<anonymous>)
-      at new F (C:\Program Files (x86)\Yarn\lib\cli.js:5301:28)
-      at RequestManager.request (C:\Program Files (x86)\Yarn\lib\cli.js:65853:19)
-      at NpmRegistry.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:31704:42)
+  Error: EBUSY: resource busy or locked, unlink 'C:\Users\fagne\Documents\RentaLx\node_modules\.bin\ts-node-dev'
 
 npm manifest: 
   {

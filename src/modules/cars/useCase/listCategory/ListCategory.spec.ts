@@ -44,10 +44,8 @@ describe('List Category', () => {
             });
 
         const response = await request(app).get('/categories');
-        console.log(response.body);
+
         expect(response.status).toBe(200);
         expect(response.body.length).toBe(1);
-        // expect(response.body[0]).toBe('id');
-        // expect(response.body[0].name).toBe('teste');
     });
 });

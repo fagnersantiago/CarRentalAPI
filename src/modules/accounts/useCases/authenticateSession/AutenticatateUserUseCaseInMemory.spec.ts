@@ -45,7 +45,7 @@ describe('Authenticate User', () => {
                 email: 'false@email.com',
                 password: '123',
             }),
-        ).rejects.toEqual(new AppErros('Email or password incorret!'));
+        ).rejects.toEqual(new AppErros('Email or password incorret!', 401));
     });
     //não autentica usuário com senha incorreta
     it('should not be able to authenticate with incorrect password', async () => {
@@ -58,11 +58,11 @@ describe('Authenticate User', () => {
 
         await createUserCase.execute(user);
 
-        expect(
+        await expect(
             authenticateUseCase.execute({
                 email: user.email,
                 password: '1426',
             }),
-        ).rejects.toEqual(new AppErros('Email or password incorret!'));
+        ).rejects.toEqual(new AppErros('Email or password incorret!', 401));
     });
 });
