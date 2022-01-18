@@ -28,6 +28,14 @@ class DayDateProvider implements IDateProvider {
     addDays(days: number) {
         return dayjs().add(days, 'days').toDate();
     }
+    addHours(hours: number): Date {
+        return dayjs().add(hours, 'hours').toDate();
+    }
+
+    compareIfBefore(start_date: Date, end_date: Date): boolean {
+        const userToken = dayjs(start_date).isBefore(end_date);
+        return userToken;
+    }
 }
 
 export default DayDateProvider;
