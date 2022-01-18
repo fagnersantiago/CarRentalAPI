@@ -28,7 +28,7 @@ class SendForgotEmailUseCase {
             '..',
             'views',
             'email',
-            'forgotSendEmail',
+            'forgotSendEmail.hbs',
         );
 
         if (!user) {
