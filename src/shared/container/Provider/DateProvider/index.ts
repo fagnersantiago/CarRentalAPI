@@ -7,9 +7,9 @@ import IStorageProvider from '../StorageProvider/IStorageProvider';
 import LocalStorageProvider from '../StorageProvider/implamentations/LocalStorageProvider';
 import S3StorageProvider from '../StorageProvider/implamentations/S3StorageProvider';
 
-container.registerInstance<IDateProvider>(
+container.registerSingleton<IDateProvider>(
     'DayjsDateProvider',
-    new DayDateProvider(),
+    DayDateProvider,
 );
 
 container.registerInstance<IMailProvider>(
