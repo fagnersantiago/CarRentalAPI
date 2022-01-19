@@ -7,6 +7,7 @@ import createConnection from '../typeorm/index';
 import router from './routes';
 import swaggerJson from '../../../swagger.json';
 import { AppErros } from '../../errors/AppErrors';
+import upload from '../../../config/upload';
 
 createConnection();
 
@@ -15,6 +16,9 @@ const app = express();
 app.use(express.json());
 
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJson));
+app.use('/avatar', express.static(`${upload.tmpFolder}/avatar`));
+app.use('/cars', express.static(`${upload.tmpFolder}/cars`));
+
 app.use(router);
 
 app.use(

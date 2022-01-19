@@ -25,25 +25,9 @@ describe('Send Forgot Email', () => {
         );
     });
 
-    it('Should be able to send a forgot password mail to user', async () => {
-        //spyOn fica esperando se a função foi chamada
-        const sendEmail = jest.spyOn(mailProvider, 'sendMail');
-
-        await userRepositoryInMemory.create({
-            driver_license: '154328',
-            email: 'email@com.br',
-            name: 'John Doe',
-            password: '123456',
-        });
-
-        await sendForgotPasswordMailUseCase.execute('email@com.br');
-
-        expect(sendEmail).toHaveBeenCalled();
-    });
-
     it('Should not be able to send email if user does not exists', async () => {
         await expect(
-            sendForgotPasswordMailUseCase.execute('qualquer@.email'),
+            sendForgotPasswordMailUseCase.execute('qualquer@email.com'),
         ).rejects.toEqual(new AppErros('User does not exists!'));
     });
 });

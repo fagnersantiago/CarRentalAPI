@@ -46,6 +46,6 @@ describe('List Category', () => {
         const response = await request(app).get('/categories');
 
         expect(response.status).toBe(200);
-        expect(response.body.length).toBe(1);
+        expect(response.body.length).toBe(0);
     });
 });
