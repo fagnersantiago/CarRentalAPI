@@ -1,4 +1,4 @@
-import MailProviderInMemory from '../../../../shared/container/Provider/DateProvider/MailProvider/InMemory/MailProviderInMemory';
+import MailProviderInMemory from '../../../../shared/container/Provider/MailProvider/InMemory/MailProviderInMemory';
 import { AppErros } from '../../../../shared/errors/AppErrors';
 import UserTokenRepository from '../../infra/typeorm/repositories/UserTokenRepository';
 import UserRepositoryInMemory from '../../repositories/in-memory/UserRepositoryInMemory';

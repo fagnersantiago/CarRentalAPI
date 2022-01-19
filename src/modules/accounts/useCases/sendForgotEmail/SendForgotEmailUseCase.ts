@@ -4,7 +4,7 @@ import IUserRepository from '../../repositories/IUserRepository';
 import IUsersTokens from '../../repositories/IUsersTokens';
 import { v4 as uuid } from 'uuid';
 import IDateProvider from '../../../../shared/container/Provider/DateProvider/IDateProvider';
-import IMailProvider from '../../../../shared/container/Provider/DateProvider/MailProvider/IMailProvider';
+import IMailProvider from '../../../../shared/container/Provider/MailProvider/IMailProvider';
 import { resolve } from 'path';
 
 @injectable()
@@ -16,7 +16,7 @@ class SendForgotEmailUseCase {
         private usersToken: IUsersTokens,
         @inject('DayjsDateProvider')
         private dayDateProvider: IDateProvider,
-        @inject('EtherealMailProvider')
+        @inject('MailProvider')
         private etherealMail: IMailProvider,
     ) {}
     async execute(email: string): Promise<void> {
