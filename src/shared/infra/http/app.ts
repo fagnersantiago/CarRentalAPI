@@ -5,6 +5,7 @@ import '../typeorm';
 import '../../container';
 import createConnection from '../typeorm/index';
 import router from './routes';
+import raterLimiter from '../../middlewares/redisLimiter';
 import swaggerJson from '../../../swagger.json';
 import { AppErros } from '../../errors/AppErrors';
 import upload from '../../../config/upload';
@@ -13,6 +14,7 @@ createConnection();
 
 const app = express();
 
+app.use(raterLimiter);
 app.use(express.json());
 
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJson));
